@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
+
+class LoginController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
+    public function redirectTo()
+    {
+        if (Auth::user()->role == 'admin') {
+
+            $this->redirectTo = '/admin';
+            return $this->redirectTo;
+
+        } elseif (Auth::user()->role == 'clinic') {
+
+            $this->redirectTo = '/clinic/profile';
+            return $this->redirectTo;
+
+        } else {
+
+            $this->redirectTo = '/login';
+                return $this->redirectTo;
+
+        }
+         
+        // return $next($request);
+    } 
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {        
+        $this->middleware('guest')->except('logout');
+    }
+
+    protected function credentials(Request $request)
+    {
+        return ['email' => $request->get('email'), 'password'=>$request->get('password') ,'role' => $request->get('role')];
+    }
+}

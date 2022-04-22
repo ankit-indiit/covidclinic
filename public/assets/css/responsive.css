@@ -1,0 +1,495 @@
+@media only screen and (max-width:1199px)
+{
+.about-us:before 
+{
+	width:431px;
+}
+.about-us2:after
+{    bottom: 90px;
+	width:431px;
+}
+.howitworks .howitworks-main.border-shape1:after{
+    width: 90px;
+    height: 116px;
+    background-size: 90px 116px;
+	top: 0px;
+    right: -64px;
+    
+}
+.howitworks .howitworks-main.border-shape2:after{
+    width: 90px;
+    height: 16px;
+    background-size: 90px 16px;
+	top: 65px;
+    right: -66px;
+    
+}
+.howitworks .howitworks-main.border-shape3:after{
+    width: 90px;
+    height: 20px;
+    background-size: 90px 20px;
+	top: 65px;
+    right: -56px
+    
+}
+
+.banner_sec .banner_img .banner-shape4 img {
+	height: 140px;
+}
+.banner_sec .banner_img .banner-shape5 img {
+	    height: 140px;
+}
+.banner_sec .banner_img .banner-shape2 img {
+	height: 140px;
+}
+.banner_sec .banner_img .banner-shape1 img {
+    height: 102px;
+}
+.banner_sec .banner_img .banner-shape5 {
+    bottom: -32px;
+    left: -64px;
+}
+.banner_sec .banner_img .banner-shape2 {
+    top: 0px;
+    right: -27px;
+}
+.banner_sec .banner_img .banner-shape3 {
+    bottom: 50px;
+    right: -10px;
+}
+.banner_sec .banner_img .banner-shape4 {
+    bottom: -88px;
+}
+.banner_sec .banner_img .banner-shape1 {
+    top: -24px;
+    left: -18px;
+}
+.about-us .about-img:after {
+    right: -70px;
+    width: 139px;
+    height: 139px;
+    bottom: -43px;
+}
+.about-us {
+    padding: 100px 0px 85px;
+}
+.about-us.aboutus_page .about-img:after {
+ right: -60px;
+    bottom: -66px;
+}
+.about-us.aboutus_page {
+    padding: 90px 0px 110px;
+}
+.nearest-location {
+    padding: 50px 0px 20px;
+    position: relative;
+}
+.about-us2 {
+    padding: 80px 0px 100px;
+}
+.about-us2 .about-img:after {
+    width: 139px;
+    height: 139px;
+}
+.about-us2 .about-img:after {
+    left: -1px;
+    bottom: -50px
+}
+
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+.about-us.aboutus_page .about-img:after {
+    right: -105px;
+    bottom: -56px;
+}
+.about-us.aboutus_page .about-content p  , .about-us2 .about-content p , .about-us2 .about-content ul li , .about-us .about-content p{
+    font-size: 16px;
+}
+.banner_sec .banner_content h1 {
+    font-size: 45px;
+}
+.about-us .about-img:after {
+    right: -105px;
+    bottom: -41px;
+}
+.section-heading h2 {
+    font-size: 35px;
+   margin-bottom:10px;
+}
+.howitworks .howitworks-main h2 {
+    font-size: 20px;
+}
+.login form.loginform .login-head h2 {
+    font-size: 32px;
+}
+.login form.loginform .login-head p {
+    font-size: 16px;
+}
+.breadcrumb_sec {
+	 padding-top: 155px;
+}
+.myaccount .card .card-body table.table thead th , .myaccount .card .card-body table.table tbody td {
+    font-size: 12px;
+}
+.myaccount .card .card-header .btn-submit {
+    font-size: 14px;
+}
+.banner_sec {
+    padding: 115px 0px 0px;
+}
+}
+@media only screen and (max-width: 991px) {
+.about-us.aboutus_page .about-content p  , .about-us2 .about-content p , .about-us2 .about-content ul li , .about-us .about-content p{
+    font-size: 14px;
+}.section-heading h2 {
+    font-size: 35px;
+   margin-bottom:10px;
+}
+.section-heading .subtitle {
+    font-size: 16px;
+}
+
+.about-us2 .about-img:after {
+left: -96px;
+    bottom: -58px;
+}
+.about-us.aboutus_page .about-img:after {
+    right: -140px;
+    bottom: -20px;
+}.about-us2:after {
+    bottom: 114px;
+}.about-us2 .about-img img {
+    max-width: 100%;
+}
+
+.about-us.aboutus_page {
+    padding: 70px 0px 70px;
+}
+header#myHeader .navbar-brand img {
+    height: 28px;
+}
+header#myHeader li.nav-item a.nav-link {
+    padding: 12px 12px;
+    font-size: 12px;
+}
+.howitworks .howitworks-main.border-shape1:after{
+   display:none;
+}
+.howitworks .howitworks-main.border-shape2:after{
+display:none;
+}
+.howitworks .howitworks-main.border-shape3:after{
+display:none;
+}
+.howitworks .howitworks-main p {
+    max-width: 100%;
+}
+.howitworks .howitworks-main h2 {
+    font-size: 18px;
+}
+.nearest-location .map-home {
+    height: 450px;
+	margin-bottom:25px;
+}
+.howitworks {
+    padding: 50px 0px;
+}
+.about-us {
+    padding:80px 0px 55px;
+}
+footer.footer .footerspace {
+    height: 190px;
+}
+.about-us .about-img:after {
+    right: -140px;
+    width: 139px;
+    height: 139px;
+    bottom: -70px;
+}
+.about-us:before 
+{
+    top: 130px;
+}
+.about-us.aboutus_page:before {
+    top: 71px;
+}
+.myaccount .card .card-body table.table thead th , .myaccount .card .card-body table.table tbody td {
+    font-size: 12px;
+}
+.contact-us.contact_page form.contactform iframe{
+	margin-top: 30px;
+}.contact-info .feature-container {
+    padding: 17px;
+}
+}
+@media only screen and (max-width: 767px) {
+	.about-us2 .about-img:after {
+    left: 120px;
+    bottom: -58px;
+}.about-us.aboutus_page .about-img:after {
+    right: -40px;
+    bottom: -20px;
+}.about-us2 .about-img img {
+    max-width: 360px;
+}.about-us2 .about-img {
+    text-align: right;
+}
+div.dataTables_wrapper div.dataTables_length,
+ div.dataTables_wrapper div.dataTables_info
+ {
+    text-align: left;
+}
+ div.dataTables_wrapper div.dataTables_filter,
+ div.dataTables_wrapper div.dataTables_paginate 
+ {
+    text-align: right;
+}
+div.dataTables_wrapper div.dataTables_filter label  ,
+div.dataTables_wrapper div.dataTables_length label
+{
+    font-size: 12px;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    font-size: 12px;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    justify-content: flex-end!important;
+    font-size: 12px;
+}
+div.dataTables_wrapper div.dataTables_info
+{
+	 font-size: 12px;
+}
+	.about-us .about-content{
+		margin-top: 80px;
+	}
+	.banner_sec .banner_content {
+    margin-top: 50px;
+}.about-us {
+    padding: 70px 0px 0px;
+}
+.nearest-location:before {
+    top: 270px;
+}
+.howitworks .howitworks-main {
+    margin-bottom: 50px;
+}
+.banner_sec .banner_content  h1 {
+    font-size: 45px;
+}
+footer.footer .footer-top .footer-widget
+{
+	margin-bottom:20px;
+}
+.howitworks {
+    padding: 20px 0px 30px;
+}
+.howitworks.howitworks_page
+{
+   padding: 60px 0px 30px;	
+}
+.howitworks .howitworks-main p {
+    max-width: 200px;
+}
+.about-us2 {
+    padding: 70px 0px 100px;
+}
+footer.footer {
+    padding-bottom: 40px;
+	padding-top: 60px;
+	border-radius: 60px 60px 0 0;
+}
+footer.footer .footerspace {
+    height: 240px;
+}
+header nav.navbar  button.navbar-toggler {
+    padding: 0px 7px 6px;
+    width: 40px;
+    height: 35px;
+    background:var(--primary-color);
+	box-shadow: 0px 0px 10px rgba(14, 32, 255, 0.19);
+}header nav.navbar .navbar-collapse {
+    background: #fff;
+    padding: 15px 15px 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0,  0.07);
+}
+header#myHeader li.nav-item  {
+    text-align: center;
+}
+header#myHeader li.nav-item a.nav-link {
+    justify-content: center;
+}
+.nearest-location .location-inner {
+    height: auto;
+}
+.nearest-location .location-inner .ss-wrapper .ss-content {
+    right: 0;
+    padding: 0;
+}
+.about-us .about-img:after{
+    width: 139px;
+    height: 135px;
+    bottom: -70px;
+    right: -100px;
+}
+header#myHeader .navbar-brand img {
+    height: 43px;
+}
+header#myHeader li.nav-item a.nav-link {
+    font-size: 14px;
+}
+.section-heading h2 {
+    font-size: 35px;
+	line-height: 1.25;
+}
+.about-us .about-content p {
+    font-size: 14px;
+    line-height: 24px;
+}
+.nearest-location {
+    padding: 60px 0px 20px;
+}
+.nearest-location.nearestlocation_page {
+    padding-bottom: 90px;
+}
+.contact-us form.contactform {
+    padding: 40px 30px 60px;
+}
+.contact-us.contact_page form.contactform iframe{
+	margin-top: 30px;
+}
+.contact-us.contact_page form.contactform {
+    padding: 30px 20px 20px;
+}
+.breadcrumb_sec {
+    height: 370px;
+	 padding-top: 155px;
+}
+.breadcrumb_sec h1 {
+    font-size: 36px;
+}
+.contact-info .feature-container {
+    margin-bottom: 20px;
+}
+.contact-us.contact_page {
+    padding: 80px 0px;
+}
+.contact-info {
+    padding-bottom: 70px;
+}
+.login form.loginform .login-head h2 {
+    font-size: 32px;
+}
+.login form.loginform .login-head h2 .loginicon {
+    width: 50px;
+    height: 50px;
+}
+.login form.loginform .login-head p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 12px auto 20px;
+}
+.login form.loginform {
+    margin-top: 40px;
+}
+.FAQ {
+    padding: 75px 0px 90px;
+}
+.terms-conditions .terms-content h2 {
+    font-size: 24px;
+	line-height: 1.25;
+}
+.terms-conditions {
+    padding: 60px 0px 70px;
+}
+.terms-conditions .terms-content p  , .terms-conditions .terms-content ul li , .terms-conditions .terms-content ol li{
+    font-size: 14px;
+    line-height: 22px;
+}
+.myaccount .card .card-header .nav-tabs li.nav-item button.nav-link , .myaccount .card .card-header .nav-tabs li.nav-item button.nav-link.active
+{
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 0;
+}
+.myaccount {
+    padding: 70px 0px;
+}
+.myaccount .card .card-header .btn-submit {
+    font-size: 14px;
+}
+.myaccount .card .card-header h2 {
+    font-size: 20px;
+}
+.myaccount .card .card-header {
+    padding: 15px 15px;
+}
+.myaccount .card .card-body  , .myaccount .card .card-footer{
+    padding: 15px;
+}
+.form-group .form-control {
+    border-radius: 8px;
+    height: 45px;
+    font-size: 14px;
+    padding: 11px 18px;
+}
+.myaccount .card .card-body .checkbox-group.mt-40 {
+    margin-top: 35px;
+}
+.btn-submit {
+    font-size: 14px;
+}
+.myaccount .card .card-header .clinic-info h4 {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+.myaccount .card .card-header .clinic-info p {
+    font-size: 12px;
+}
+.myaccount .card .card-header .clinic-logo h3 {
+    font-size: 12px;
+    margin-top: 10px;
+}
+.myaccount .card .card-header h2 {
+    font-size: 14px;
+}
+.myaccount .card .card-header .clinic-logo img {
+    height: 32px;
+}
+.myaccount .card .card-body .report-text p {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+header#myHeader li.nav-item .dropdown-menu {
+    max-width: 180px;
+    margin: 0 auto;
+}
+.banner_sec {
+    padding: 115px 0px 0px;
+}
+}
+@media only screen and (max-width: 575px) {
+	.nearest-location .location-inner .media {
+    flex-direction: column;
+}
+.nearest-location .location-inner .media .media-left {
+    height: 150px;
+	margin-bottom:20px;
+}
+.about-us .about-img:after , .about-us2 .about-img:after{
+ display:none;
+}
+.myaccount .card .card-header .btn-submit {
+    font-size: 14px;
+    margin-top: 10px;
+}
+.myaccount .card .card-body .checkbox-group.mt-40 {
+    margin-top: 0px;
+}
+.myaccount .card .card-header .mt-mob-10 {
+    margin-top: 10px;
+}
+.myaccount .card .card-header .clinic-info{
+	  margin-top: 10px;
+}
+}
