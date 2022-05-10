@@ -10,4 +10,9 @@ class FaqController extends Controller
     {
     	return view('frontend.page.faq');
     }
+
+    public function faq()
+    {
+    	return view('admin.page.faq');
+    }
 }

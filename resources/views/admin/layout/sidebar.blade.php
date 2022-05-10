@@ -10,32 +10,27 @@
                 <li class="active">
                     <a href="index.php"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
                 </li>
-                <li class="">
-                    <a href="users.php"><i class="fas fa-users"></i> <span>Users</span></a>
+                <li class="submenu">
+                    <a href="javascript:void(0);" class=""><i class="fas fa-users"></i> <span> Users </span> <span class="menu-arrow pl-4"></span></a>
+                    <ul style="display: none;">
+                    <li><a href="{{ route('users', 'clinic') }}"> Clinic </a></li>
+                    <li><a href="{{ route('users', 'patient') }}"> Patient </a></li>                    
+                    </ul>
                 </li>
-                <li class="">
-                    <a href="products.php"><i class="fas fa-archive"></i> <span>Products</span></a>
-                </li>
-                <li class="">
-                    <a href="services.php"><i class="fas fa-cog"></i> <span>Services</span></a>
-                </li>
-                <li class="">
-                    <a href="orders.php"><i class="fas fa-truck"></i> <span>Orders</span></a>
-                </li>
-                <li class="">
-                    <a href="bookinglist.php"><i class="far fa-calendar-check"></i> <span>Booking List</span></a>
-                </li>
-                <li class="">
-                    <a href="faqs.php"><i class="fas fa-question"></i> <span>FAQs</span></a>
+
+                <li class="submenu">
+                    <a href="#" class=""><i class="fas fa-user-lock"></i> <span> Pages </span> <span class="menu-arrow pl-4"></span></a>
+                    <ul style="display: none;">
+                    <li><a href="{{ route('home.index') }}"> Home </a></li>
+                    <li><a href=""> About Us </a></li>
+                    <li><a href="{{ route('contact.us') }}"> Contact Us </a></li>
+                    <li><a href=""> Nearest Location </a></li>
+                    <li><a href="{{ route('admin.faq') }}"> FAQs </a></li>
+                    <li><a href=""> Terms & Conditions </a></li>
+                    </ul>
                 </li>
                 <li class="">
                     <a href="notifications.php"><i class="fas fa-bell"></i> <span>Notifications</span></a>
-                </li>
-                <li class="">
-                    <a href="feedback.php"><i class="fas fa-comment-alt"></i> <span>Feedback</span></a>
-                </li>
-                <li class="">
-                    <a href="pages.php"><i class="fas fa-file-alt"></i> <span>Pages</span></a>
                 </li>
                 <li class="">
                     <a href="profile.php"><i class="fas fa-user-cog"></i> <span>Profile Settings</span></a>

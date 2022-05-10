@@ -11,12 +11,15 @@ class PatientReport extends Model
     use HasFactory, Filterable;
 
     protected $fillable = [
-    	'patient_id',
+    	'id',
+        'patient_id',
     	'title',
     	'specimen_type',
     	'status',
     	'report',
     ];
+
+    // protected $appends = ['report_incurrect_status'];
 
     public function modelFilter()
     {
@@ -26,7 +29,7 @@ class PatientReport extends Model
     public function getReportAttribute()
     {
     	return url('images/patient-reports/').'/'.$this->attributes['report'];
-    }
+    }   
 
     public function getCreatedAtAttribute()
     {

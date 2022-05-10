@@ -66,7 +66,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['fake_image'];
+    protected $appends = ['fake_image', 'clinic'];
 
     public function getImageAttribute()
     {
@@ -81,6 +81,11 @@ class User extends Authenticatable
     public function getSymptomAttribute()
     {
         return unserialize($this->attributes['symptom']);
+    }
+
+    public function getClinicAttribute()
+    {
+        return @User::where('id', $this->attributes['clinic_id'])->pluck('facility')->first();
     }
 
     // public function getDobAttribute()

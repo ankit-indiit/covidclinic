@@ -31,17 +31,17 @@ window.onscroll = function() {myFunction()};
 $(document).ready(function() {
     $('#example').DataTable();
 } );
-(function($){
-				$(window).on("load",function(){
-				$(".tablescroll ").mCustomScrollbar({
-				  axis:"x", // horizontal scrollbar
-				  scrollbarPosition: "outside",
-				  alwaysShowScrollbar:"Enable",
-				  scrollButtons:"Enable ",
-				  advanced:{autoExpandHorizontalScroll:true}
-				});
-				});
-				})(jQuery);
+// (function($){
+// 				$(window).on("load",function(){
+// 				$(".tablescroll ").mCustomScrollbar({
+// 				  axis:"x", // horizontal scrollbar
+// 				  scrollbarPosition: "outside",
+// 				  alwaysShowScrollbar:"Enable",
+// 				  scrollButtons:"Enable ",
+// 				  advanced:{autoExpandHorizontalScroll:true}
+// 				});
+// 				});
+// 				})(jQuery);
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)

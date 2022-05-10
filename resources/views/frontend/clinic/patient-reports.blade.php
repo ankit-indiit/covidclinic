@@ -48,10 +48,69 @@
 	 </div>	
 </section>
 @endsection
-@section('customeScript')
+@section('customScript')
 {{-- <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script> --}}
 {!! $dataTable->scripts() !!}
 <script type="text/javascript">
-  
+	$(document).on('click', '#reportIncorrect', function(){
+		var reportId = $(this).data('id');
+		swal({
+	      title: "Report Description",
+	      input: "textarea",
+	      inputPlaceholder: "Enter Description",	      
+	      showCancelButton: true,
+	      cancelButtonText: 'Cancel',
+	      confirmButtonText: "Submit ",
+	      inputValidator: function(description) {
+	        return new Promise(function(resolve, reject) {
+	          if (description != '' && description != null) {
+	            // swal("Success!", "You comment: " + description, "success");
+	            sendIncorrectReport(reportId, description);
+	          }
+	          else {
+	            reject('Please enter a valid text');
+	          }
+	        });
+	      }
+	    })
+	});
+
+	$(document).on('click', '#reportedIncorrect', function(){
+		var reportId = $(this).data('id');
+		swal({
+	      title: "Reported Description",
+	      input: "textarea",
+	      inputValue: reportId,      
+	    })
+	});
+
+	function sendIncorrectReport(reportId, description){
+		$.ajax({
+	        headers: {
+	            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+	        },
+	        type: 'post',
+	        url: _baseURL + "/patient/report-incorrect",
+	        data: { 
+	        	reportId: reportId,
+	        	description: description 
+	        },
+	        dataType: 'json',
+	        success: function (data) {
+	            if (data.success == true) {
+                	swal("", data.message, "success", {
+                   	button: "close",
+                });
+                $('.swal2-confirm').on('click', function(){
+                  	location.reload();
+                });
+             	} else {
+                	swal("", data.message, "error", {
+                   		button: "close",
+                	});
+             	}
+	        }
+	    });
+	}	
 </script>
 @endsection

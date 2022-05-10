@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\DataTables\PatientReportDataTable;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
-// use Carbon\Carbon;
+use App\Models\PatientReport;
+use App\Models\IncorrectReport;
+use Notification;
+use App\Notifications\IncorrectReportNotification;
 use Carbon\Carbon;
 use Auth;
 
@@ -37,5 +40,26 @@ class PatientController extends Controller
     public function reports(PatientReportDataTable $dataTable, Request $request)
     {
      	return $dataTable->with('filter', $request->all())->render('frontend.clinic.patient-reports'); 
+    }
+
+    public function reportIncorrect(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->clinic_id);
+        $reportId = \Crypt::decrypt($request->reportId);
+        $request['report_id'] = $reportId;
+        $request['status'] = 1;
+        IncorrectReport::create($request->all());
+
+        $notification = new \stdClass();
+        $notification->body = getUserNameById(Auth::user()->id).' has reported to incurrect result!';
+        $notification->sender_id = Auth::user()->id;
+        $notification->report_id = $reportId;
+        $notification->actionURL = url("/");
+        
+        $notidicationId = Notification::send($user, new IncorrectReportNotification($notification));
+        return response()->json([
+            'success' => true,
+            'message' => 'Reported Successfully!',
+        ]);
     }
 }

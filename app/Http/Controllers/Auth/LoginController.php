@@ -35,7 +35,7 @@ class LoginController extends Controller
     {
         if (Auth::user()->role == 'admin') {
 
-            $this->redirectTo = '/admin';
+            $this->redirectTo = route('admin');
             return $this->redirectTo;
 
         } elseif (Auth::user()->role == 'clinic') {

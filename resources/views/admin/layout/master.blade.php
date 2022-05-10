@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>HavenSense</title>
+        <title>Covid Clinic || Admin Dashboard</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link rel="shortcut icon" href="{{ asset('admin/assets/img/favicon.png') }}">
         <link rel="stylesheet" href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
@@ -15,6 +16,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap">
         <link rel="stylesheet" href="{{ asset('admin/assets/css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/assets/css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/editor.css') }}">
+        <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
+        <script>
+           var _baseURL = '{{ url('/') }}';
+        </script>
     </head>
     <body>
 		<div class="main-wrapper">
@@ -49,96 +56,11 @@
         <script src="{{ asset('admin/assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ asset('admin/assets/js/moment.min.js') }}"></script>
         <script src="{{ asset('admin/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/datatables/datatables.min.js') }}"></script>
-        <script src="https://unpkg.com/apexcharts@3.31.0/dist/apexcharts.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/plugins/datatables/datatables.min.js') }}"></script>        
         <script src="{{ asset('admin/assets/js/admin.js') }}"></script>
-        <script>
-          /* Sales Revenue */
-          var options = {
-             series: [{
-                name: "SALES",
-                data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-                 colors:'#0E48B4'
-             }],
-             chart: {
-                height: 400,
-                type: 'line',
-                zoom: {
-                   enabled: false
-                }
-             },
-             dataLabels: {
-                enabled: false
-             },
-             stroke: {
-                curve: 'straight',
-                colors:'#0E48B4'
-             },
-             grid: {
-                row: {
-                   colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                   opacity: 0.5
-                },
-             },
-             xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-             }
-          };
-          var chart = new ApexCharts(document.querySelector("#sales"), options);
-          chart.render();
-
-          /* Product Services */
-          var options = {
-              series: [{
-              name: 'Product',
-              data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }, {
-              name: 'Services',
-              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-            }, 
-            ],
-              chart: {
-              type: 'bar',
-              height: 350
-            },
-            plotOptions: {
-              bar: {
-                horizontal: false,
-                columnWidth: '55%',
-                endingShape: 'rounded'
-              },
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              show: true,
-              width: 2,
-              colors: ['transparent']
-            },
-            xaxis: {
-              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-
-            },
-            yaxis: {
-              title: {
-                text: 'Product/Services'
-              }
-            },
-            fill: {
-              opacity: 1
-            },
-            tooltip: {
-              y: {
-                formatter: function (val) {
-                  return "$ " + val + " Sales"
-                }
-              }
-            }
-            };
-
-            var chart = new ApexCharts(document.querySelector("#productservices"), options);
-            chart.render();
-        </script>
+        <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/js/custom-script.js') }}"></script>
+        <script src="{{ asset('admin/editor.js') }}"></script>
+        @yield('customScript')        
     </body>
 </html>

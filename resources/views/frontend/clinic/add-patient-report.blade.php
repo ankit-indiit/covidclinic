@@ -71,7 +71,7 @@
    </div>
 </section>
 @endsection
-@section('customeScript')
+@section('customScript')
 <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
 <script type="text/javascript">
 	$("#addPatientReportForm").validate({

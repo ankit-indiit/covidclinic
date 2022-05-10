@@ -9,6 +9,10 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TermsConditionController;
+use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminContactUsController;
+use App\Http\Controllers\Admin\AdminHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +26,23 @@ use App\Http\Controllers\TermsConditionController;
 */
 
 Auth::routes();
-Route::group(['middleware' => ['auth']], function() {
-
+Route::group(['middleware' => ['admin']], function() {
+    Route::prefix('covid-admin')->group(function () {
+        Route::get('/', [HomeController::class, 'dashboard'])->name('admin');
+        Route::get('users/{role}', [UserController::class, 'users'])->name('users');        
+        Route::get('user/create/{role}', [UserController::class, 'addUserForm'])->name('crete-user-form');
+        Route::post('add-user', [UserController::class, 'addUser'])->name('add-user');
+        Route::get('edit-user/{id}', [UserController::class, 'editUser'])->name('edit-user');
+        Route::post('update-user', [UserController::class, 'updateUser'])->name('update-user');
+        Route::post('delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
+        Route::get('profile', [UserController::class, 'profile'])->name('profile');
+        Route::resource('home', AdminHomeController::class);       
+        Route::get('faq', [FaqController::class, 'faq'])->name('admin.faq');        
+        Route::get('contact-us', [AdminContactUsController::class, 'index'])->name('contact.us');        
+    });
 });
-
-Route::prefix('dashboard')->group(function () {
-    Route::get('/', [HomeController::class, 'dashboard'])->name('admin');
-});
+Route::post('admin-login', [UserController::class, 'adminLogin'])->name('admin.login');        
+Route::get('admin-login-form', [UserController::class, 'adminLoginForm'])->name('admin-login-form');
 
 Route::prefix('clinic')->group(function () {
     Route::get('/profile', [ClinicController::class, 'profile'])->name('clinic.profile');
@@ -51,6 +65,7 @@ Route::prefix('clinic')->group(function () {
 
 Route::prefix('patient')->group(function () {
     Route::get('/patient-reports', [PatientController::class, 'reports'])->name('reports');
+    Route::post('/report-incorrect', [PatientController::class, 'reportIncorrect'])->name('report-incorrect');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -62,3 +77,5 @@ Route::get('/clinic', [ClinicController::class, 'index'])->name('clinic');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/terms-condition', [TermsConditionController::class, 'index'])->name('terms-condition');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::post('/contact', [ContactUsController::class, 'contact'])->name('contact');
+Route::post('/subscribe', [NewsLetterController::class, 'subscribe'])->name('subscribe');

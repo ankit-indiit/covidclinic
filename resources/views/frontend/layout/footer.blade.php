@@ -27,10 +27,13 @@
                <div class="footer-widget">
                   <h2>Subscribe</h2>
                   <p class="subtitle">Subscribe to get latest property, blog news from us</p>
-                  <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Email Address">
-                     <button class="btn btn-email" type="button"><i class="fas fa-long-arrow-right"></i></button>
-                  </div>
+                  <form action="{{ route('subscribe') }}" id="subscribeForm" method="post">
+                     @csrf
+                     <div class="input-group">
+                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                        <button type="submit" class="btn btn-email" id="subscribeFormBtn" type="button"><i class="fas fa-long-arrow-right"></i></button>                        
+                     </div>
+                  </form>
                </div>
             </div>
          </div>
@@ -57,8 +60,9 @@
 <script src="{{ asset('assets/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDnMvJXKTsrCcDRdM03l8TlIdlYZuIXQHs&libraries=places"></script>
-@yield('customeScript')
+@yield('customScript')
 <script>var locations = [
    ['Location 1 Name', 'New York, NY', 'https://www.google.com/maps/place/New+York,+NY,+USA/@40.6976701,-74.2598758,10z/data=!3m1!4b1!4m5!3m4!1s0x89c24fa5d33f083b:0xc80b8f06e177fe62!8m2!3d40.7127753!4d-74.0059728'],
    ['Location 2 Name', 'Newark, NJ', 'https://www.google.com/maps/place/Newark,+NJ,+USA/@40.7313924,-74.252096,12z/data=!3m1!4b1!4m5!3m4!1s0x89c25370329a0e1d:0xe1bcdc2adcfee473!8m2!3d40.735657!4d-74.1723667'],
@@ -69,50 +73,50 @@
    var map;
    var bounds = new google.maps.LatLngBounds();
    
-   function initialize() {
-   map = new google.maps.Map(
-   document.getElementById("map_canvas"), {
-   	center: new google.maps.LatLng(37.4419, -122.1419),
-   	zoom: 13,
-   	mapTypeId: google.maps.MapTypeId.ROADMAP
-   });
-   geocoder = new google.maps.Geocoder();
+   // function initialize() {
+   // map = new google.maps.Map(
+   // document.getElementById("map_canvas"), {
+   // 	center: new google.maps.LatLng(37.4419, -122.1419),
+   // 	zoom: 13,
+   // 	mapTypeId: google.maps.MapTypeId.ROADMAP
+   // });
+   // geocoder = new google.maps.Geocoder();
    
-   for (i = 0; i < locations.length; i++) {
+   // for (i = 0; i < locations.length; i++) {
    
    
-   	geocodeAddress(locations, i);
-   }
-   }
-   google.maps.event.addDomListener(window, "load", initialize);
+   // 	geocodeAddress(locations, i);
+   // }
+   // }
+   // google.maps.event.addDomListener(window, "load", initialize);
    
-   function geocodeAddress(locations, i) {
-   var title = locations[i][0];
-   var address = locations[i][1];
-   var url = locations[i][2];
-   geocoder.geocode({
-   	'address': locations[i][1]
-   },
+   // function geocodeAddress(locations, i) {
+   // var title = locations[i][0];
+   // var address = locations[i][1];
+   // var url = locations[i][2];
+   // geocoder.geocode({
+   // 	'address': locations[i][1]
+   // },
    
-   function (results, status) {
-   	if (status == google.maps.GeocoderStatus.OK) {
-   		var marker = new google.maps.Marker({
-   			  icon: '{{ asset('assets/img/map-marker') }}.png',
-   			map: map,
-   			position: results[0].geometry.location,
-   			title: title,
-   			animation: google.maps.Animation.DROP,
-   			address: address,
-   			url: url
-   		})
-   		infoWindow(marker, map, title, address, url);
-   		bounds.extend(marker.getPosition());
-   		map.fitBounds(bounds);
-   	} else {
-   		alert("geocode of " + address + " failed:" + status);
-   	}
-   });
-   }
+   // function (results, status) {
+   // 	if (status == google.maps.GeocoderStatus.OK) {
+   // 		var marker = new google.maps.Marker({
+   // 			  icon: '{{ asset('assets/img/map-marker') }}.png',
+   // 			map: map,
+   // 			position: results[0].geometry.location,
+   // 			title: title,
+   // 			animation: google.maps.Animation.DROP,
+   // 			address: address,
+   // 			url: url
+   // 		})
+   // 		infoWindow(marker, map, title, address, url);
+   // 		bounds.extend(marker.getPosition());
+   // 		map.fitBounds(bounds);
+   // 	} else {
+   // 		alert("geocode of " + address + " failed:" + status);
+   // 	}
+   // });
+   // }
    
    function infoWindow(marker, map, title, address, url) {
    google.maps.event.addListener(marker, 'click', function () {
@@ -140,7 +144,49 @@
    infoWindow(marker, map, title, address, url);
    return marker;
    }
-   
+
+$("#subscribeForm").validate({
+   rules: {
+      email: {
+         required: true,
+      },
+   },
+   messages: {
+      email: "Please enter your email",      
+   },
+   submitHandler: function(form) {
+      var serializedData = $(form).serialize();
+      $("#err_mess").html('');
+      // $('#subscribeFormBtn').html('Processing <i class="fa fa-spinner fa-spin"></i>');
+      $.ajax({
+         headers: {
+            'X-CSRF-Token': $('input[name="_token"]').val()
+         },
+         type: 'post',
+         url: "{{ route('subscribe') }}",
+         data: serializedData,
+         dataType: 'json',
+         success: function(data) {               
+            $('#subscribeFormBtn').html('Save Changes');
+            if (data.success == true) {
+               swal("", data.message, "success", {
+                  button: "close",
+               });
+               $('.swal2-confirm').on('click', function(){
+                  window.location.reload();
+               });
+            } else {
+               swal("", data.message, "error", {
+                  button: "close",
+               });
+            }
+
+
+         }
+      });
+      return false;
+   }
+});
 </script>
 </body>
 </html>

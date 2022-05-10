@@ -100,12 +100,15 @@
         <li class="nav-item dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle user-link  nav-link" data-toggle="dropdown">
                 <span class="user-img">
-                    <img class="rounded-circle" src="assets/img/user.png" width="40" alt="">
+                    <img class="rounded-circle" src="{{ Auth::user()->image }}" width="40" alt="">
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="profile.php">Profile</a>
-                <a class="dropdown-item" href="login.php">Logout</a>
+                <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                   <button type="submit" class="dropdown-item"><i class="fa fa-sign-out-alt"></i> Logout</button>
+                </form>
             </div>
         </li>
     </ul>

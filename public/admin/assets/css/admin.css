@@ -4304,3 +4304,7 @@ textarea {
     border: 1px solid #f2f2f2;
     border-top: 0;
 }
+.Editor-editor {
+    height: 200px;
+    border: 1px solid gray;
+}
