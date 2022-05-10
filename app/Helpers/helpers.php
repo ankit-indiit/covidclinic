@@ -61,4 +61,15 @@ function getClinicFacilityById($clinicId)
 {
     return App\Models\User::where('id', $clinicId)->pluck('facility')->first();
 }
+
+function getIncorrectReportStatus($id)
+{
+    $reportId = \Crypt::decrypt($id);
+    return App\Models\IncorrectReport::where('report_id', $reportId)->pluck('description')->first();
+}
+
+function getUserNameById($id)
+{
+    return App\Models\User::where('id', $id)->pluck('first_name')->first();
+}
    
