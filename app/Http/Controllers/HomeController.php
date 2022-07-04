@@ -3,29 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Page;
+use App\Models\NearestLocation;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        // Alert::success('Success', 'You\'ve Successfully Registered');
-        return view('frontend.page.index');
+        $home = Page::where('title', 'Home')->first();
+        $locationTitle = Page::where('title', 'Nearest Location')->first();
+        $locations = NearestLocation::get();       
+        $data = ['page_title' => 'Home || Covid Clinic', 'home' => $home, 'locations' => $locations, 'locationTitle' => $locationTitle];
+        return view('frontend.page.index', $data);
     }
 
     public function dashboard()

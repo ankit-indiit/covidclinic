@@ -12,12 +12,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&amp;display=swap">
         <link rel="stylesheet" href="{{ asset('admin/assets/css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/assets/css/responsive.css') }}">
+        <link href="{{ asset('admin/assets/css/toastr.css') }}" rel="stylesheet" />
     </head>
     <body>
         <div class="main-wrapper">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.php" class="logo logo-small">
+                    <a href="javascript:void(0);" class="logo logo-small">
                         <img src="{{ asset('admin/assets/img/logo.png') }}" alt="Logo" width="30" height="30">
                     </a>
                 </div>
@@ -142,13 +143,13 @@
                 <div class="login-right-wrap">
                     <div class="account-header">
                         <div class="account-logo text-center mb-4">
-                            <a href="index.html">
-                                <img src="{{ asset('admin/assets/img/logo.png') }}" alt="" class="img-fluid">
+                            <a href="javascript:void(0);">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div>
                     <div class="login-header text-center">
-                        <h3>Login <span>HavenSense</span></h3>
+                        <h3>Login <span>Covid Clinic</span></h3>
                     </div>
                     <form action="{{ route('admin.login') }}" method="post">
                         @csrf
@@ -165,7 +166,7 @@
                             <button class="btn btn-primary btn-block account-btn" type="submit">Login</button>
                         </div>
                     </form>
-                    <div class="text-center forgotpass mt-4"><a href="forgot-password.php">Forgot Password?</a></div>
+                    <!--<div class="text-center forgotpass mt-4"><a href="forgot-password.php">Forgot Password?</a></div>-->
                 </div>
             </div>
         </div>
@@ -200,7 +201,23 @@
         <script src="{{ asset('admin/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/datatables.min.js') }}"></script>
         <script src="https://unpkg.com/apexcharts@3.31.0/dist/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/js/admin.js') }}"></script><div class="sidebar-overlay"></div>
+        <script src="{{ asset('admin/assets/js/admin.js') }}"></script>
+        <script src="{{ asset('admin/assets/js/toastr.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                toastr.options.timeOut = 10000;
+                @if (Session::has('error'))
+                    toastr.error('{{ Session::get('error') }}');
+                @elseif(Session::has('success'))
+                    toastr.success('{{ Session::get('success') }}');
+                @endif
+
+                @if(Session::has('status'))
+                    toastr.success('{{ Session::get('status') }}');
+                @endif
+          });
+        </script>
+        <div class="sidebar-overlay"></div>
         <script>
           /* Sales Revenue */
           var options = {
@@ -290,4 +307,6 @@
             chart.render();
         </script>
     
-<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg></body></html>
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg>
+</body>
+</html>

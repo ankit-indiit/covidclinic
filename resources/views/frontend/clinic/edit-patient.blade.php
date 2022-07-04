@@ -1,6 +1,9 @@
 @extends('frontend.layout.master')
 @section('content')
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'Edit Patient',
+  'home' => route('home'),
+])
 <section class="editprofile myaccount">
    <div class="container">
       <div class="card">
@@ -151,7 +154,7 @@
                   </div>                  
                   @foreach($patientSymptoms as $patientSymptom)
                     <div class="checkbox-group mb-2">
-                       <input type="checkbox" style="display:none" id="symptom{{ $patientSymptom->id }}" name="symptom[]" class="patientSymptom" value="{{ $patientSymptom->id }}" @if (in_array($patientSymptom->id, $patientDetail->symptom)) checked @endif>
+                       <input type="checkbox" style="display:none" id="symptom{{ $patientSymptom->id }}" name="symptom[]" class="patientSymptom" value="{{ $patientSymptom->id }}" @if($patientDetail->symptom) @if (in_array($patientSymptom->id, $patientDetail->symptom)) checked @endif @endif>
                        <label for="symptom{{ $patientSymptom->id }}">{{ $patientSymptom->name }}</label>
                     </div>
                   @endforeach                   

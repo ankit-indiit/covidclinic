@@ -24,17 +24,12 @@
                   </div>
                   <div class="col ml-md-n2 profile-user-info">
                      <h4 class="user-name mb-0">{{ $user->first_name }} {{ $user->last_name }}</h4 >
-                     <h6 class="text-muted">UI/UX Design Team</h6>
+                     {{-- <h6 class="text-muted">UI/UX Design Team</h6> --}}
                      <div class="user-Location"><i class="fas fa-map-marker-alt"></i> {{ $user->address1 }}</div>
                      <div class="about-text">{{ $user->address2 }}</div>
                   </div>
-                  <div class="col-auto profile-btn">
-                     <a href="" class="btn btn-primary">
-                     Message
-                     </a>
-                     <a href="" class="btn btn-primary">
-                     Edit
-                     </a>
+                  <div class="col-auto profile-btn">                    
+                     <a data-toggle="modal" href="#edit_personal_details" class="btn btn-primary">Edit</a>
                   </div>
                </div>
             </div>
@@ -92,38 +87,39 @@
                                     </button>
                                  </div>
                                  <div class="modal-body">
-                                    <form>
+                                    <form action="{{ route('update.admin-profile') }}" method="post" id="updateAdminForm">
+                                       @csrf
                                        <div class="row form-row">
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" value="{{ $user->first_name }}">
+                                                <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" value="{{ $user->last_name }}">
+                                                <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
                                              </div>
                                           </div>
                                           <div class="col-12">
                                              <div class="form-group">
                                                 <label>Date of Birth</label>
                                                 <div class="cal-icon">
-                                                   <input type="text" class="form-control" value="{{ $user->dob }}">
+                                                   <input type="text" class="form-control" name="dob" value="{{ $user->dob }}">
                                                 </div>
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>Email ID</label>
-                                                <input type="email" class="form-control" value="{{ $user->email }}">
+                                                <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>Mobile</label>
-                                                <input type="text" value="{{ $user->phone_number }}" class="form-control">
+                                                <input type="text" name="phone_number" value="{{ $user->phone_number }}" class="form-control">
                                              </div>
                                           </div>
                                           <div class="col-12">
@@ -132,42 +128,36 @@
                                           <div class="col-12">
                                              <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" value="{{ $user->address1 }} Agriculture Lane">
+                                                <input type="text" class="form-control" name="address1" value="{{ $user->address1 }}">
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" value="Miami">
+                                                <input type="text" class="form-control" name="city" value="{{ $user->city }}">
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>State</label>
-                                                <input type="text" class="form-control" value="Florida">
+                                                <input type="text" class="form-control" name="state" value="{{ $user->state }}">
                                              </div>
                                           </div>
                                           <div class="col-12 col-sm-6">
                                              <div class="form-group">
                                                 <label>Zip Code</label>
-                                                <input type="text" class="form-control" value="22434">
+                                                <input type="text" class="form-control" name="zip_code" value="{{ $user->zip_code }}">
                                              </div>
-                                          </div>
-                                          <div class="col-12 col-sm-6">
-                                             <div class="form-group">
-                                                <label>Country</label>
-                                                <input type="text" class="form-control" value="United States">
-                                             </div>
-                                          </div>
+                                          </div>                                          
                                        </div>
-                                       <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                                       <button type="submit" class="btn btn-primary btn-block" id="updateAdminFormBtn">Update</button>
                                     </form>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-3">
+                    {{--  <div class="col-lg-3">
                         <div class="card">
                            <div class="card-body">
                               <h5 class="card-title d-flex justify-content-between">
@@ -195,7 +185,7 @@
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> --}}
                   </div>
                </div>
                <div id="password_tab" class="tab-pane fade">
@@ -204,20 +194,21 @@
                         <h5 class="card-title">Change Password</h5>
                         <div class="row">
                            <div class="col-md-10 col-lg-6">
-                              <form>
+                              <form action="{{ route('update.admin-password') }}" method="post" id="updateAdminPasswordForm">
+                                 @csrf
                                  <div class="form-group">
                                     <label>Old Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="old_password" class="form-control">
                                  </div>
                                  <div class="form-group">
                                     <label>New Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="new_password" class="form-control">
                                  </div>
                                  <div class="form-group">
                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="confirm_password" class="form-control">
                                  </div>
-                                 <button class="btn btn-primary" type="submit">Save Changes</button>
+                                 <button class="btn btn-primary" type="submit" id="updateAdminPasswordFormBtn">Update</button>
                               </form>
                            </div>
                         </div>

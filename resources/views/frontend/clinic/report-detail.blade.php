@@ -1,15 +1,17 @@
 @extends('frontend.layout.master')
 @section('content')
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'Report Detail',
+  'home' => route('home'),
+])
 <section class="editprofile myaccount" id="patientPrintReport">
    <div class="container">
       <div class="card">
          <div class="card-header">
             <div class="row align-items-center">
-               {{-- {{$clinicDetail}} --}}
                <div class="col-md-4 col-sm-4 ">
                   <div class="clinic-logo">
-                     <img height="50px" src="{{ $clinicDetail->image }}">
+                     <img height="50px" src="{{ url('public/assets/img/logo.png') }}">
                      <h3><b>Email: </b>{{ $clinicDetail->email }}</h3>
                   </div>
                </div>
@@ -41,10 +43,9 @@
                </div>
                <div class="col-md-6 col-lg-4  col-sm-6 offset-lg-4 text-sm-end">
                   <div class="report-text">                                           
-                     <p><b>Report ID. </b>: {{ $reportDetail->id }}</p>
-                     <p><b>Reg Date/Time</b>: {{ $patientDetail->created_at }}</p>
-                     <p><b>Collected Date/Time</b>: {{ $reportDetail->created_at }}</p>
-                     <p><b>Reported Date/Time</b>: Mar 21 2022 , 04:35 pm</p>
+                        <p><b>Report ID.</b>: #{{ $reportDetail->id }}</p>
+                        <p><b>Collected Date/Time</b>: {{ $reportDetail->reg_date }}</p>
+                        <p><b>Reported Date/Time</b>: {{ $reportDetail->created_at }}</p>
                   </div>
                </div>
                <div class="col-md-12 mt-4">
@@ -78,7 +79,7 @@
             </div>
          </div>
          <div class="card-footer text-end">
-            <button class="btn btn-print" id="patientReportPrintBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="" aria-label="Print Report"><i class="fa fa-print"></i></button>               
+            <button class="btn btn-print" onclick="printDiv('patientPrintReport')" data-bs-toggle="tooltip" data-bs-placement="top" title="" aria-label="Print Report"><i class="fa fa-print"></i></button>               
             @php $reportId = Crypt::encrypt($reportDetail->id); @endphp
             <a href="{{ route('download-pdf', $reportId) }}">
                <button class="btn btn-print" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Download Report" aria-label="Download Report"><i class="fa fa-download"></i></button>
@@ -91,14 +92,15 @@
 @section('customScript')
 <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
 <script type="text/javascript">
-   $(document).on('click', '#patientReportPrintBtn', function(){
-      var prtContent = document.getElementById("patientPrintReport");
-      var WinPrint = window.open();
-      WinPrint.document.write(prtContent.innerHTML);
-      WinPrint.document.close();
-      WinPrint.focus();
-      WinPrint.print();
-      WinPrint.close();
-   });
+   function printDiv(sectionId) {
+     var printContents = document.getElementById(sectionId).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+   }
 </script>
 @endsection

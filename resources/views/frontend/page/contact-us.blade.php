@@ -1,14 +1,15 @@
 @extends('frontend.layout.master')
 @section('content')
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'Contact Us',
+  'home' => route('home'),
+])
  <section class="contact-us contact_page">
     <div class="container">       
      <div class="row">
         <div class="col-md-12 col-lg-6">
         <div class="section-heading">
-          <h2>Contact <span>Us</span></h2>
-          <p class="subtitle">Just like our fast and accurate COVID-19 Rt-PCR test, we will get back to you within 24 hours!</p>
-          <p class="subtitle2">Are you a medical provider looking to offer your patients a fast and reliable result?</p>
+          {!! $data->desc['contact_us'] !!}          
         </div>
         <div class="contactforminner">
           {{ Form::open(['url' => route('contact'), 'id' => 'contactUsForm', 'class' => '']) }}

@@ -1,6 +1,11 @@
 @extends('frontend.layout.master')
 @section('content')	
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'All Reports',
+  'home' => route('home'),
+  'previous' => route('patients'),
+  'previous_title' => 'Patients',
+])
 <section class="editprofile myaccount">
 	<div class="container">
 		<div class="card">
@@ -22,11 +27,11 @@
 					<div class="row align-items-center  mb-4">
 					  <div class="col-md-3 col-lg-3 col-sm-6 form-group mb-2">
 					    <label>Start Date</label>
-						<input type="date" name="start_date" value="{{ request()->start_date ? request()->start_date : '' }}" placehoder="Start Date" class="form-control" id="startdate">
+						<input type="date" name="start_date" value="{{ request()->start_date ? request()->start_date : '' }}" placehoder="Start Date" class="form-control" id="">
 					  </div>
 					  <div class="col-md-3 col-lg-3 col-sm-6  form-group  mb-2">
 					      <label>End Date</label>
-						  <input type="date" name="end_date" value="{{ request()->start_date ? request()->start_date : '' }}" placehoder="End Date" class="form-control" id="enddate">
+						  <input type="date" name="end_date" value="{{ request()->start_date ? request()->start_date : '' }}" placehoder="End Date" class="form-control" id="">
 					  </div>
 					  <div class="col-md-3 col-lg-4 form-group  mb-2">
 					      <label>Specimen Type</label>

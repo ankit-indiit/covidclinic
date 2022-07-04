@@ -1,6 +1,9 @@
 @extends('frontend.layout.master')
 @section('content')	
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'Add Report',
+  'home' => route('home'),
+])
 <section class="editprofile myaccount">
    <div class="container">
       <div class="card">
@@ -18,13 +21,13 @@
             {{ Form::open(['url' => route('add-patient-report'), 'id' => 'addPatientReportForm', 'class' => '', 'enctype' => 'multipart/form-data']) }}
             <div class="row">
 	            <div class="row">		            	 
-	              	<div class="col-sm-12 col-md-4 col-lg-4">
+	              	<div class="col-sm-12 col-md-4 col-lg-6">
 		                <div class="form-group mb-3">
 		                  {{ Form::label('title', 'Title') }}
 		                   {{ Form::text('title', '', ['class' => 'form-control', 'id' => '', 'placeholder' => 'Title']) }}
 		                </div>
 	              	</div>		              		               
-	               <div class="col-sm-6 col-md-4 col-lg-4">
+	               <div class="col-sm-6 col-md-4 col-lg-6">
 	                  <div class="form-group mb-3">
 	                     <label>Specimen  Type</label>
 	                     <select class="form-control" name="specimen_type">
@@ -34,7 +37,7 @@
 	                     </select>
 	                  </div>
 	               </div>
-	               <div class="col-sm-6 col-md-4 col-lg-4">
+	               <div class="col-sm-6 col-md-4 col-lg-6">
 	                  <div class="form-group mb-3">
 	                     <label>Status</label>
 	                     <select class="form-control" name="status">
@@ -43,6 +46,12 @@
 	                        <option value="Negative">Negative</option>
 	                        <option value="Pending">Pending</option>
 	                     </select>
+	                  </div>
+	               </div>
+	               <div class="col-sm-6 col-md-4 col-lg-6">
+	                  <div class="form-group mb-3">
+	                     <label>Reg Date</label>
+	                     <input type="date" class="form-control" name="reg_date"/>
 	                  </div>
 	               </div>
 	               <div class="col-md-12 col-lg-12">

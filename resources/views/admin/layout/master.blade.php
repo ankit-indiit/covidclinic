@@ -18,7 +18,8 @@
         <link rel="stylesheet" href="{{ asset('admin/assets/css/responsive.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/editor.css') }}">
-        <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/js/sweetalert2.min.js') }}"></script>
+        <link href="{{ asset('admin/assets/css/toastr.css') }}" rel="stylesheet" />
         <script>
            var _baseURL = '{{ url('/') }}';
         </script>
@@ -61,6 +62,21 @@
         <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
         <script src="{{ asset('admin/assets/js/custom-script.js') }}"></script>
         <script src="{{ asset('admin/editor.js') }}"></script>
-        @yield('customScript')        
+         <script src="{{ asset('admin/assets/js/toastr.js') }}"></script>
+        @yield('customScript')
+        <script>
+            $(document).ready(function() {
+                toastr.options.timeOut = 10000;
+                @if (Session::has('error'))
+                    toastr.error('{{ Session::get('error') }}');
+                @elseif(Session::has('success'))
+                    toastr.success('{{ Session::get('success') }}');
+                @endif
+
+                @if(Session::has('status'))
+                    toastr.success('{{ Session::get('status') }}');
+                @endif
+          });
+        </script>
     </body>
 </html>

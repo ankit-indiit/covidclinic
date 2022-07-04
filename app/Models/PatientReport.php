@@ -17,6 +17,7 @@ class PatientReport extends Model
     	'specimen_type',
     	'status',
     	'report',
+    	'reg_date',
     ];
 
     // protected $appends = ['report_incurrect_status'];
@@ -34,5 +35,10 @@ class PatientReport extends Model
     public function getCreatedAtAttribute()
     {
         return date('d/m/Y H:i A', strtotime($this->attributes['created_at']));
+    }
+    
+    public function getRegDateAttribute()
+    {
+        return date('d/m/Y H:i A', strtotime($this->attributes['reg_date']));
     }
 }

@@ -15,6 +15,8 @@
       <link rel="icon" href="{{ asset('assets/img/favicon.png') }}" sizes="16x16" type="image/png">
       <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
       <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
+      <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+      <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"/>
       <script>
          var _baseURL = '{{ url('/') }}';
       </script>
@@ -42,7 +44,7 @@
                         <a class="nav-link {{ Route::current()->getName() == 'contact-us' ? 'active' : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
                      </li>
                   </ul>
-                  @if ( @Auth::user())
+                  @if ( Auth::user() && Auth::user()->role != 'admin')
                      @if (Auth::user()->role == 'clinic')
                         <ul class="navbar-nav ms-auto">
                            <li class="nav-item dropdown">

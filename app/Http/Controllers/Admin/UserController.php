@@ -24,14 +24,14 @@ class UserController extends Controller
             'password' => 'required',
         ]);
    
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password', 'role');
         if (Auth::attempt($credentials)) {
             return redirect()->route('admin')
                 ->withSuccess('You have Successfully loggedin');
         }
   
-        return redirect("admin-login-form")->withSuccess('Oppes! You have entered invalid credentials');
-    }   
+        return redirect("admin-login-form")->withError('Oppes! You have entered invalid credentials');
+    }
 
 	public function profile()
 	{
@@ -127,6 +127,26 @@ class UserController extends Controller
         return response()->json([
             'success' => true,
             'message' => ucfirst($request->role).' has been deleted!',
+        ]);
+    }
+
+    public function updateAdminProfile(Request $request)
+    {
+        User::where('id', Auth::user()->id)->update($request->except(['_token']));
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile has been updated!',
+        ]);
+    }
+
+    public function updateAdminPassword(Request $request)
+    {        
+        User::where('id', Auth::user()->id)->update([
+            'password' => Hash::make($request->confirm_password),
+        ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Password has been updated!',
         ]);
     }
 }

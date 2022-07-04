@@ -1,6 +1,9 @@
 @extends('frontend.layout.master')
 @section('content')
-@include('frontend.component.breadcrumb')
+@include('frontend.component.breadcrumb', [
+  'title' => 'Patients',
+  'home' => route('home'),
+])
 <section class="editprofile myaccount">
    <div class="container">
       <div class="card">

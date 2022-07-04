@@ -105,59 +105,7 @@
                                                     <i class="far fa-eye mr-1"></i> View 
                                                 </a>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-nowrap"> 2 </td>
-                                            <td class="text-nowrap"> #2463 </td>
-                                            <td> Quest 2 Headset </td>
-                                            <td> John Smith </td>
-                                            <td> Michel Joe </td>
-                                            <td> <div class="font-weight-600">$71</div> </td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye mr-1"></i> View 
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-nowrap"> 3 </td>
-                                            <td class="text-nowrap"> #2463 </td>
-                                            <td> Quest 2 Headset </td>
-                                            <td> John Smith </td>
-                                            <td> Michel Joe </td>
-                                            <td> <div class="font-weight-600">$71</div> </td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye mr-1"></i> View 
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-nowrap"> 4 </td>
-                                            <td class="text-nowrap"> #2463 </td>
-                                            <td> Quest 2 Headset </td>
-                                            <td> John Smith </td>
-                                            <td> Michel Joe </td>
-                                            <td> <div class="font-weight-600">$71</div> </td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye mr-1"></i> View 
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-nowrap"> 5 </td>
-                                            <td class="text-nowrap"> #2463 </td>
-                                            <td> Quest 2 Headset </td>
-                                            <td> John Smith </td>
-                                            <td> Michel Joe </td>
-                                            <td> <div class="font-weight-600">$71</div> </td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye mr-1"></i> View 
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        </tr>                                        
                                     </tbody>
                                 </table>
                             </div>

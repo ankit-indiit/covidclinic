@@ -109,13 +109,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                           <label>New Password</label>
-                                          <input class="form-control" type="password" name="password" placeholder="Enter New Password" value="{{ $editUser->password }}">
+                                          <input class="form-control" type="password" name="password" placeholder="Enter New Password" value="">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                           <label>Confirm New Password</label>
-                                          <input class="form-control" type="password" name="confirm_password" placeholder="Enter Confirm New Password" value="{{ $editUser->password }}">
+                                          <input class="form-control" type="password" name="confirm_password" placeholder="Enter Confirm New Password" value="">
                                         </div>
                                     </div>
                                 </div>

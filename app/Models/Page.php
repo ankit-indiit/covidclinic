@@ -13,4 +13,11 @@ class Page extends Model
     	'title',
     	'description',
     ];
+
+    protected $appends = ['desc'];
+
+    public function getDescAttribute()
+    {
+        return unserialize($this->attributes['description']);
+    }    
 }

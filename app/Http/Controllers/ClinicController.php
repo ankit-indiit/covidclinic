@@ -199,6 +199,7 @@ class ClinicController extends Controller
                 'specimen_type' => $request->specimen_type,
                 'status' => $request->status,
                 'report' => $image,
+                'reg_date' => $request->reg_date,
             ]);            
         }
         return response()->json([
@@ -228,6 +229,7 @@ class ClinicController extends Controller
                 'specimen_type' => $request->specimen_type,
                 'status' => $request->status,
                 'report' => $image,
+                'reg_date' => $request->reg_date.' '.date('H:i:s'),
             ]);            
 
         } else {

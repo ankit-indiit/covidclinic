@@ -8,6 +8,13 @@ use App\Models\User;
 
 class NewsLetterController extends Controller
 {
+    public function index(Request $request)
+    {
+        $subscribers = NewsLetter::get();
+        $data = ['page_title' => 'News Letter || Admin', 'subscribers' => $subscribers];
+        return view('admin.page.news-letter.index', $data);
+    }
+
     public function subscribe(Request $request)
     {
     	if (User::where('email', $request->email)->exists()) {

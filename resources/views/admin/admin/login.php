@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="login-header text-center">
-                        <h3>Login <span>HavenSense</span></h3>
+                        <h3>Login <span>Covid Clinic</span></h3>
                     </div>
                     <form action="http://localhost/haven(admin)/index.php">
                         <div class="form-group">

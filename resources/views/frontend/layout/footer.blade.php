@@ -6,7 +6,7 @@
             <div class="col-md-4 col-lg-4 col-xxl-4">
                <div class="footer-widget">
                   <div class="logo-footer">
-                     <a href="index.html"><img src="{{ asset('assets/img/logo-white') }}.png"/></a>
+                     <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo-white') }}.png"/></a>
                   </div>
                   <p>
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -29,7 +29,7 @@
                   <p class="subtitle">Subscribe to get latest property, blog news from us</p>
                   <form action="{{ route('subscribe') }}" id="subscribeForm" method="post">
                      @csrf
-                     <div class="input-group">
+                     <div class="input-group footer_sub_error">
                         <input type="text" class="form-control" name="email" placeholder="Email Address">
                         <button type="submit" class="btn btn-email" id="subscribeFormBtn" type="button"><i class="fas fa-long-arrow-right"></i></button>                        
                      </div>
@@ -57,7 +57,7 @@
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/simple-scrollbar.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/dataTables.bootstrap5.min.js') }}"></script>
+<!--script src="{{ asset('assets/js/dataTables.bootstrap5.min.js') }}"></script--->
 <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>

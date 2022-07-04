@@ -22,18 +22,25 @@
                     <a href="#" class=""><i class="fas fa-user-lock"></i> <span> Pages </span> <span class="menu-arrow pl-4"></span></a>
                     <ul style="display: none;">
                     <li><a href="{{ route('home.index') }}"> Home </a></li>
-                    <li><a href=""> About Us </a></li>
+                    <li><a href="{{ route('about.us') }}"> About Us </a></li>
+                    <li><a href="{{ route('nearest-location.index') }}">Nearest Location </a></li>
                     <li><a href="{{ route('contact.us') }}"> Contact Us </a></li>
-                    <li><a href=""> Nearest Location </a></li>
-                    <li><a href="{{ route('admin.faq') }}"> FAQs </a></li>
+                    <li><a href="{{ route('contact.us-page') }}"> Contact Us Page </a></li>
+                    <li><a href="{{ route('news.letter') }}"> News letter </a></li>
                     <li><a href=""> Terms & Conditions </a></li>
+                    </ul>
+                </li>                
+                <li class="submenu">
+                    <a href="#" class=""><i class="fas fa-user-lock"></i> <span> FAQ </span> <span class="menu-arrow pl-4"></span></a>
+                    <ul style="display: none;">                   
+                    <li><a href="{{ route('faq.index') }}"> FAQ Page </a></li>
                     </ul>
                 </li>
                 <li class="">
                     <a href="notifications.php"><i class="fas fa-bell"></i> <span>Notifications</span></a>
                 </li>
                 <li class="">
-                    <a href="profile.php"><i class="fas fa-user-cog"></i> <span>Profile Settings</span></a>
+                    <a href="{{ route('profile') }}"><i class="fas fa-user-cog"></i> <span>Profile Settings</span></a>
                 </li>
                 
                 <!--   <li class="submenu">

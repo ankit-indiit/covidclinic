@@ -51,7 +51,7 @@ class LoginController extends Controller
         }
          
         // return $next($request);
-    } 
+    }
 
     /**
      * Create a new controller instance.
