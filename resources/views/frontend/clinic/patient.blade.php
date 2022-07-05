@@ -6,7 +6,7 @@
 ])
 <section class="editprofile myaccount">
    <div class="container">
-      <div class="card">
+      <div class="card clinic_patient">
          <div class="card-header">
             <div class="row align-items-center">
                <div class="col-md-6 col-sm-6">
@@ -18,15 +18,15 @@
             </div>
          </div>
          <div class="card-body">
-            <div class="tablescroll mCustomScrollbar _mCS_2" style="position: relative; overflow: visible;">
+            <div class="tablescroll mCustomScrollbar _mCS_2" style="position: relative;">
                <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_outside" tabindex="0" style="max-height: none;">
-                  <div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: -16px; width: 1082px; min-width: 100%; overflow-x: inherit;" dir="ltr">
+                  <div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px;  min-width: 100%; overflow-x: inherit;" dir="ltr">
                      <div class="mCustomScrollbar _mCS_1" data-mcs-theme="dark">
                         <div id="mCSB_1" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
                            <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
                               <div id="example_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                                  <div class="row">
-                                    <div class="col-sm-12">                                      
+                                    <div class="col-sm-12">                                        
                                        {!! $dataTable->table() !!}
                                     </div>
                                  </div>                                

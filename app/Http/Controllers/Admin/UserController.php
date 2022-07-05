@@ -26,8 +26,8 @@ class UserController extends Controller
    
         $credentials = $request->only('email', 'password', 'role');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('admin')
-                ->withSuccess('You have Successfully loggedin');
+            return redirect()->route('profile')
+                ->withSuccess('You have Successfully loggedin!');
         }
   
         return redirect("admin-login-form")->withError('Oppes! You have entered invalid credentials');

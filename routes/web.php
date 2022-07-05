@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         Route::get('contact-us-page', [AdminContactUsController::class, 'contactUsPage'])->name('contact.us-page');        
         Route::post('contact-us-data', [AdminContactUsController::class, 'store'])->name('contact.us-data');
         Route::get('news-letter', [NewsLetterController::class, 'index'])->name('news.letter');
-        Route::get('news-letter', [NewsLetterController::class, 'index'])->name('news.letter');
+        Route::post('delete-subscriber', [NewsLetterController::class, 'deleteSubscriber'])->name('delete.subscriber');
         Route::post('update-admin-profile', [UserController::class, 'updateAdminProfile'])->name('update.admin-profile');
         Route::post('update-admin-password', [UserController::class, 'updateAdminPassword'])->name('update.admin-password');
     });
@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth', 'user']], function() {
         Route::post('/update-patient-report', [ClinicController::class, 'updatePatientReport'])->name('update-patient-report');
         Route::get('/report-detail/{id}', [ClinicController::class, 'reportDetail'])->name('report-detail');
         Route::get('/download-pdf/{id}', [ClinicController::class, 'downloadPdf'])->name('download-pdf');
+        Route::get('/print-report/{id}', [ClinicController::class, 'printReport'])->name('print-report');
     });
 
     Route::prefix('patient')->group(function () {

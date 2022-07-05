@@ -426,7 +426,26 @@ $("#addHomeForm").validate({
 });
 
 $("#addAboutForm").validate({
-    
+    rules: {
+       title: {
+          required: true,
+       },
+       sub_title: {
+          required: true,
+       }, 
+       description: {
+          required: true,
+       }, 
+       description1: {
+          required: true,
+       },               
+    },
+    messages: {
+       title: "Please enter title!",
+       sub_title: "Please enter sub title",      
+       description: "Please enter description",      
+       description1: "Please enter description",      
+    },
     submitHandler: function(form) {
       var serializedData = $(form).serialize();
        $("#err_mess").html('');
@@ -496,7 +515,34 @@ $("#addContactForm").validate({
 });
 
 $("#addNearestLocationForm").validate({
-    
+    rules: {
+       title: {
+          required: true,
+       },
+       address: {
+          required: true,
+       }, 
+       working_hour: {
+          required: true,
+       },   
+       mobile_no: {
+          required: true,
+       },
+       location_image: {
+          required: true,
+       }, 
+       link: {
+          required: true,
+       },                   
+    },
+    messages: {
+       title: "Please enter title!",
+       address: "Please enter address!",       
+       working_hour: "Please enter working hour!",       
+       mobile_no: "Please enter mobile number!",       
+       location_image: "Please enter location image!",       
+       link: "Please enter link!",       
+    },
     submitHandler: function(form) {
       // var serializedData = $(form).serialize();
       var serializedData = new FormData(form);
@@ -630,7 +676,6 @@ $(document).on('click', '#deleteLocation', function(){
 });
 
 function deleteLocation(id) {
-  alert(id);
   $.ajax({
         headers: {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -659,7 +704,18 @@ function deleteLocation(id) {
 }
 
 $("#addFaqForm").validate({
-    
+    rules: {
+      question: {
+        required: true,
+      },
+      answer: {
+        required: true,
+      },           
+    },
+    messages: {
+       question: "Please enter your question",
+       answer: "Please enter your answer",
+    },
     submitHandler: function(form) {
       var serializedData = $(form).serialize();
        $("#err_mess").html('');
@@ -686,8 +742,6 @@ $("#addFaqForm").validate({
                    button: "close",
                 });
              }
-
-
           }
        });
        return false;
@@ -695,7 +749,18 @@ $("#addFaqForm").validate({
 });
 
 $("#updateFaqForm").validate({
-    
+    rules: {
+      question: {
+        required: true,
+      },
+      answer: {
+        required: true,
+      },           
+    },
+    messages: {
+       question: "Please enter your question",
+       answer: "Please enter your answer",
+    },
     submitHandler: function(form) {
       var id = $('#editedFaqId').val();
       var serializedData = $(form).serialize();
@@ -723,10 +788,104 @@ $("#updateFaqForm").validate({
                    button: "close",
                 });
              }
-
-
           }
        });
        return false;
     }
 });
+
+$(document).on('click', '#deleteFaq', function(){
+  var id = $(this).data('id'); 
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this user!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result == true) {
+      deleteFaq(id);
+    } else {
+      swal("", "Cancelled!", "error", {
+          button: "close",
+      });
+    }
+  });
+});
+
+function deleteFaq(id) {
+  $.ajax({
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: 'delete',
+        url: _baseURL + "/covid-admin/faq"+"/"+id,
+        data: { 
+          id: id,
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (data.success == true) {
+              swal("", data.message, "success", {
+                button: "close",
+            });
+            $('.swal2-confirm').on('click', function(){
+                location.reload();
+            });
+          } else {
+              swal("", data.message, "error", {
+                  button: "close",
+              });
+          }
+        }
+    });
+}
+
+$(document).on('click', '#deleteSubscriber', function(){
+  var id = $(this).data('id'); 
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this user!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result == true) {
+      deleteSubscriber(id);
+    } else {
+      swal("", "Cancelled!", "error", {
+          button: "close",
+      });
+    }
+  });
+});
+
+function deleteSubscriber(id) {
+  $.ajax({
+    headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: 'post',
+    url: _baseURL + "/covid-admin/delete-subscriber",
+    data: { 
+      id: id,
+    },
+    dataType: 'json',
+    success: function (data) {
+        if (data.success == true) {
+          swal("", data.message, "success", {
+            button: "close",
+        });
+        $('.swal2-confirm').on('click', function(){
+            location.reload();
+        });
+      } else {
+          swal("", data.message, "error", {
+              button: "close",
+          });
+      }
+    }
+  });
+}

@@ -8,7 +8,7 @@
 ])
 <section class="editprofile myaccount">
 	<div class="container">
-		<div class="card">
+		<div class="card allreport_patient">
 	       	<div class="card-header">
 				 <div class="row align-items-center">
 					 <div class="col-md-6 col-sm-6">

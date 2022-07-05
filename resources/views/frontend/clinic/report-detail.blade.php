@@ -6,7 +6,7 @@
 ])
 <section class="editprofile myaccount" id="patientPrintReport">
    <div class="container">
-      <div class="card">
+      <div class="card allreport_patient">
          <div class="card-header">
             <div class="row align-items-center">
                <div class="col-md-4 col-sm-4 ">
@@ -79,8 +79,10 @@
             </div>
          </div>
          <div class="card-footer text-end">
-            <button class="btn btn-print" onclick="printDiv('patientPrintReport')" data-bs-toggle="tooltip" data-bs-placement="top" title="" aria-label="Print Report"><i class="fa fa-print"></i></button>               
             @php $reportId = Crypt::encrypt($reportDetail->id); @endphp
+            <a href="{{ route('print-report', $reportId) }}" target="__blank">
+               <button class="btn btn-print" {{-- onclick="printDiv('patientPrintReport')" --}} data-bs-toggle="tooltip" data-bs-placement="top" title="" aria-label="Print Report"><i class="fa fa-print"></i></button>                              
+            </a>
             <a href="{{ route('download-pdf', $reportId) }}">
                <button class="btn btn-print" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Download Report" aria-label="Download Report"><i class="fa fa-download"></i></button>
             </a>     

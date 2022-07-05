@@ -4308,3 +4308,6 @@ textarea {
     height: 200px;
     border: 1px solid gray;
 }
+.error{
+	color: #ff0000;
+}

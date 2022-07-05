@@ -18,15 +18,17 @@
        } 
        .card-body .report-detail .table thead th
        {
-           padding: 6px 10px; 
-           font-size: 14px;
+           padding: 6px 7px; 
+           font-size: 13px;
+           text-align: left;
        }  
        .card-body .report-detail .table tbody td
        {
-           padding: 6px 6px; 
+           padding: 6px 7px; 
            font-size: 13px;
            font-weight: 400;
            border-right: 1px solid #dee2e6;
+           text-align: left;
        }  
        .card-body .report-detail .table tbody td:last-child
        {

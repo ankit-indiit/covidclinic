@@ -7,7 +7,7 @@
                 <div class="card card-table">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title">Faqs</h4>
-                        <a href="{{ route('home.create') }}" class="btn btn-default btnwhite">Add</a>
+                        <a href="{{ route('faq.index') }}" class="btn btn-default btnwhite">Back to faqs</a>
                     </div>
                     <div class="card-body">
                         <div class="padBox">

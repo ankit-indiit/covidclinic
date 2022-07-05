@@ -1498,3 +1498,149 @@ background: transparent;
 	display: none;
 }
 /**View Report Page Css Ends**/
+.form-group label.error {
+    color: #cf0606;
+}
+.footer-top .footer-widget .input-group.footer_sub_error label.error {
+    position: absolute;
+    bottom: -26px;
+    color: #fff;
+}
+.pb_100
+{
+    padding-bottom: 100px;
+}
+.card .card-body .dataTables_wrapper .dataTables_length label ,
+.card .card-body div.dataTables_wrapper div.dataTables_filter label
+{
+    font-size: 15px;
+    font-weight: 500!important;
+}
+.card .card-body .dataTables_wrapper .dataTables_length select 
+{
+    height: 31px;
+    border: 1px solid #7c7c7c;
+    border-radius: 7px;
+    min-width: 60px;
+    outline: 0px;
+}
+.card .card-body div.dataTables_wrapper div.dataTables_filter label input {
+    outline: 0px;
+    border-radius: 7px;
+    box-shadow: none;
+    border: 1px solid #7c7c7c;
+    height: 31px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_length ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_length 
+{
+    display: inline-block;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_filter ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_filter 
+{
+    display: inline-block;
+    float: right;
+}
+.card.allreport_patient .card-body .dataTables_wrapper table.table thead th {
+    padding: 12px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper table.table thead th.sorting_asc:before ,
+.card.allreport_patient .card-body .dataTables_wrapper table.table thead th.sorting_asc:after ,
+.card.allreport_patient .card-body .dataTables_wrapper table.table thead th.sorting:before ,
+.card.allreport_patient .card-body .dataTables_wrapper table.table thead th.sorting:after
+{
+    top: 12px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper table.table tbody td {
+    padding: 10px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_length label ,
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_filter label ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_length label ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_filter label
+{
+    color: var(--heading-color);
+    text-transform: capitalize;
+    font-weight: 600!important;
+    font-size: 14px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_length label select ,
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_filter input ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_length label select ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_filter input
+{
+    border: 1px solid #D8D8D9;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #0D2651;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_paginate a.paginate_button.previous ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_paginate a.paginate_button.previous 
+{
+    display: inline-block;
+    background: #efefef;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 40px;
+    color: #4c4c4c;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_paginate a.paginate_button.next ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_paginate a.paginate_button.next 
+{
+    display: inline-block;
+    background: #0e20ff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 40px;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_paginate span a.paginate_button ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_paginate span a.paginate_button 
+{
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
+.card.clinic_patient .card-body .dataTables_wrapper table.table {
+    width: 100%!important;
+}
+.card.clinic_patient .card-body .dataTables_wrapper table.table thead th {
+    white-space: nowrap;
+    padding: 12px 24px 12px 12px;
+}
+.card.clinic_patient .card-body .dataTables_wrapper table.table tbody td
+{
+    padding: 10px;
+}
+.card.clinic_patient .card-body .dataTables_wrapper table.table thead th.sorting_asc:before ,
+.card.clinic_patient .card-body .dataTables_wrapper table.table thead th.sorting_asc:after ,
+.card.clinic_patient .card-body .dataTables_wrapper table.table thead th.sorting:before ,
+.card.clinic_patient .card-body .dataTables_wrapper table.table thead th.sorting:after
+{
+    top: 12px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper div.dataTables_info ,
+.card.clinic_patient .card-body .dataTables_wrapper div.dataTables_info 
+{
+    display: inline-block;
+    padding-top: 0px;
+    color: var(--heading-color);
+    text-transform: capitalize;
+    font-weight: 600!important;
+    font-size: 14px;
+}
+.card.allreport_patient .card-body .dataTables_wrapper .dataTables_paginate ,
+.card.clinic_patient .card-body .dataTables_wrapper .dataTables_paginate 
+{
+    display: inline-block;
+    float: right;
+}

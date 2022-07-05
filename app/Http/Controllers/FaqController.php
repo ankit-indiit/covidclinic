@@ -56,4 +56,13 @@ class FaqController extends Controller
             'message' => "Faq has been updated!",
         ]);
     }
+
+    public function destroy(Request $request)
+    {       
+        Faq::where('id', $request->id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => "Faq has been deleted!",
+        ]);
+    }
 }

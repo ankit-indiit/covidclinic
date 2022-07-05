@@ -7,7 +7,7 @@
          <div class="col-md-12">
             <div class="card card-table">
                <div class="card-header d-flex justify-content-between align-items-center">
-                  <h4 class="card-title">All Subsceibers</h4>
+                  <h4 class="card-title">All Subscribers</h4>
                </div>
                <div class="card-body">
                   <div class="table-responsive">
@@ -27,11 +27,8 @@
                                         <tr role="row" class="odd">
                                            <td class="sorting_1">{{ $loop->iteration }}</td>
                                            <td>{{ $subscriber->email }}</td>
-                                           <td>
-                                              <a href="" class="btn btn-sm bg-info-light">
-                                                <i class="far fa-eye mr-1"></i>
-                                              </a>
-                                              <a href="javascript: void(0)" id="deletesubsceiber" data-id="" data-role="" class="btn btn-sm bg-danger-light delete_review_comment">
+                                           <td>                                              
+                                              <a href="javascript: void(0)" id="deleteSubscriber" data-id="{{ $subscriber->id }}" class="btn btn-sm bg-danger-light delete_review_comment">
                                                 <i class="far fa-trash-alt"></i>
                                               </a>
                                            </td>

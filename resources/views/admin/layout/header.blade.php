@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header-left">
-        <a href="index.php" class="logo logo-small">
+        <a href="{{ route('profile') }}" class="logo logo-small">
             <img src="assets/img/logo.png" alt="Logo" width="30" height="30">
         </a>
     </div>
@@ -11,7 +11,7 @@
         <i class="fas fa-align-left"></i>
     </a>
     <ul class="nav user-menu">
-        <li class="nav-item dropdown noti-dropdown">
+        {{-- <li class="nav-item dropdown noti-dropdown">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <i class="far fa-bell"></i> <span class="badge badge-pill"></span>
             </a>
@@ -96,7 +96,7 @@
                     <a href="notifications.php">View all Notifications</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle user-link  nav-link" data-toggle="dropdown">
                 <span class="user-img">

@@ -35,4 +35,13 @@ class NewsLetterController extends Controller
             'message' => $message,
         ]);
     }
+
+    public function deleteSubscriber(Request $request)
+    {
+        NewsLetter::where('id', $request->id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Subscriber has been deleted!',
+        ]);
+    }
 }

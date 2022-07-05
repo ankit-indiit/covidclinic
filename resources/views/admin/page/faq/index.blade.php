@@ -3,7 +3,6 @@
 <div class="page-wrapper">
    <div class="content container-fluid">
       <div class="row">
-         <!-- Users -->
          <div class="col-md-12">
             <div class="card card-table">
                <div class="card-header d-flex justify-content-between align-items-center">
@@ -34,8 +33,8 @@
                                               <a href="{{ route('faq.edit', $faq->id) }}" class="btn btn-sm bg-info-light">
                                               <i class="far fa-eye mr-1"></i>
                                               </a>
-                                              <a href="javascript: void(0)" id="deletefaq" data-id="{{ $faq->id }}" class="btn btn-sm bg-danger-light delete_review_comment">
-                                              <i class="far fa-trash-alt"></i>
+                                              <a href="javascript: void(0)" id="deleteFaq" data-id="{{ $faq->id }}" class="btn btn-sm bg-danger-light delete_review_comment">
+                                                <i class="far fa-trash-alt"></i>
                                               </a>
                                            </td>
                                         </tr>
@@ -45,14 +44,12 @@
                            </div>
                         </div>
                         <div class="row">
-                                                     
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <!-- End Of faqs -->
       </div>
    </div>
 </div>
