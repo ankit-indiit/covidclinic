@@ -18,6 +18,8 @@ use App\Models\PaymentStatus;
 use App\Models\PatientRace;
 use App\Models\PatientSymptom;
 use App\Models\PatientReport;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Auth;
 use PDF;
 
@@ -265,5 +267,25 @@ class ClinicController extends Controller
         $data = ['patientReport' => $patientReport, 'patientDetail' => $patientDetail, 'clinicDetail' => $clinicDetail];       
         $pdf = PDF::loadView('frontend.download-pdf.patient-report', $data);
         return $pdf->download(''.$patientReport->title.'.pdf');
+    }
+
+    public function printReport(Request $request, $id)
+    {
+        $reportId = Crypt::decrypt($id);
+        $patientReport = PatientReport::where('id', $reportId)->first();
+        $patientDetail = User::where('id', $patientReport->patient_id)->first();        
+        $clinicDetail = Auth::user();
+
+        $options = new Options();
+        $options->set('defaultFont', 'Courier');
+        $options->set('isRemoteEnabled', TRUE);
+        $options->set('debugKeepTemp', TRUE);
+        $options->set('isHtml5ParserEnabled', true);
+        $dompdf = new Dompdf($options);
+        $html = view('frontend.download-pdf.patient-report', compact('patientReport', 'patientDetail', 'clinicDetail'));
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        return $dompdf->stream($patientReport->title, array("Attachment"=>0));
     }
 }
