@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\User;
+use App\Models\PatientReport;
 use Auth;
 use Hash;
 
@@ -147,6 +148,30 @@ class UserController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Password has been updated!',
+        ]);
+    }
+
+    public function patientReport(Request $request, $userId)
+    {
+        $id = Crypt::decrypt($userId);
+        $reports = PatientReport::where('patient_id', $id)->get();
+        return view('admin.page.user.patient.report', compact('reports'));
+    }
+
+    public function viewReportDetail(Request $request, $reportId, $userId)
+    {
+        $patientDetail = User::where('id', $userId)->first();
+        $report = PatientReport::where('id', $reportId)->first();        
+        $clinicDetail = User::where('id', $patientDetail->clinic_id)->first();
+        return view('admin.page.user.patient.report-detail', compact('report', 'patientDetail', 'clinicDetail'));
+    }
+
+    public function deleteReport(Request $request)
+    {
+        PatientReport::where('id', $request->id)->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Report has been deleted!',
         ]);
     }
 }

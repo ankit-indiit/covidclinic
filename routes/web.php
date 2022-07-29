@@ -45,6 +45,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
         Route::post('about-us-data', [AdminAboutUsController::class, 'store'])->name('about-us-data');        
         Route::get('contact-us', [AdminContactUsController::class, 'index'])->name('contact.us');        
         Route::get('contact-us-page', [AdminContactUsController::class, 'contactUsPage'])->name('contact.us-page');        
+        Route::get('patient-report/{userId}', [UserController::class, 'patientReport'])->name('patient.report');        
+        Route::get('view-report-detail/{reportId}/{userId}', [UserController::class, 'viewReportDetail'])->name('view.report-detail');        
+        Route::post('delete-report', [UserController::class, 'deleteReport'])->name('delete.report');        
         Route::post('contact-us-data', [AdminContactUsController::class, 'store'])->name('contact.us-data');
         Route::get('news-letter', [NewsLetterController::class, 'index'])->name('news.letter');
         Route::post('delete-subscriber', [NewsLetterController::class, 'deleteSubscriber'])->name('delete.subscriber');

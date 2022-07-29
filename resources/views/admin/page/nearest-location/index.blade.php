@@ -61,7 +61,7 @@
                                         <td class="text-wrap">{{$location->working_hour}}</td>
                                         <td class="text-wrap">{{$location->mobile_no}}</td>
                                         <td class="text-wrap">
-                                             <img src="{{$location->image}}">
+                                             <img src="{{$location->image}}" width="100" height="100">
                                         </td>
                                         <td>
                                             <a href="{{ route('nearest-location.edit', $location->id) }}" class="btn btn-sm bg-info-light">

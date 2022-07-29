@@ -889,3 +889,51 @@ function deleteSubscriber(id) {
     }
   });
 }
+
+$(document).on('click', '#deleteReport', function(){
+  var id = $(this).data('id');
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this user!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result == true) {
+      deletePatientReport(id);
+    } else {
+      swal("", "Cancelled!", "error", {
+          button: "close",
+      });
+    }
+  });
+});
+
+function deletePatientReport(id) {
+  $.ajax({
+    headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: 'post',
+    url: _baseURL + "/covid-admin/delete-report/",
+    data: { 
+      id: id,
+    },
+    dataType: 'json',
+    success: function (data) {
+        if (data.success == true) {
+          swal("", data.message, "success", {
+            button: "close",
+        });
+        $('.swal2-confirm').on('click', function(){
+            location.reload();
+        });
+      } else {
+          swal("", data.message, "error", {
+              button: "close",
+          });
+      }
+    }
+  });
+}

@@ -16,7 +16,7 @@
                     <li><a href="{{ route('users', 'clinic') }}"> Clinic </a></li>
                     <li><a href="{{ route('users', 'patient') }}"> Patient </a></li>                    
                     </ul>
-                </li>
+                </li>                
 
                 <li class="submenu">
                     <a href="#" class=""><i class="fas fa-file"></i> <span> Pages </span> <span class="menu-arrow pl-4"></span></a>

@@ -203,6 +203,14 @@ class ClinicController extends Controller
                 'report' => $image,
                 'reg_date' => $request->reg_date,
             ]);            
+        } else {
+            PatientReport::create([
+                'patient_id' => $request->patient_id,
+                'title' => $request->title,
+                'specimen_type' => $request->specimen_type,
+                'status' => $request->status,
+                'reg_date' => $request->reg_date,
+            ]);
         }
         return response()->json([
             'success' => true,
